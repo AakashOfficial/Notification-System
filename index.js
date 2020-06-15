@@ -5,11 +5,17 @@ const express = require('express');
 const app = express();
 
 var bodyParser = require("body-parser");
+const exphbs = require('express-handlebars');
 var mongodb = require('mongodb');
 var path = require("path");
 var cors = require('cors');
 
-// const userController = require('./controllers/userController');
+app.use(cors({
+    origin: 'http://localhost:4200'
+}));
+
+const userController = require('./controller/userController');
+const notificationController = require('./controller/notificationController');
 
 // to include form data into req parameter
 app.use(bodyParser.urlencoded({
@@ -17,9 +23,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use(cors());
-
-// app.use('/user', userController);
+app.use('/user', userController);
+app.use('/notification', notificationController);
 
 // PORT
 var server = app.listen(process.env.PORT || 8080, function() {

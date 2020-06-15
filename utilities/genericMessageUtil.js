@@ -2,8 +2,8 @@ var twilio = require('twilio');
 
 exports.sendMessage = async function(receiver, body) {
 
-    var accountSid = 'ACebd7573a45b1a2b76ee073585cbd907c'; // Your Account SID from www.twilio.com/console
-    var authToken = '571908c4e77ae8ff35e1a5b63f0a6afa'; // Your Auth Token from www.twilio.com/console
+    var accountSid = ''; // Your Account SID from www.twilio.com/console
+    var authToken = ''; // Your Auth Token from www.twilio.com/console
 
     var client = new twilio(accountSid, authToken);
     try {
